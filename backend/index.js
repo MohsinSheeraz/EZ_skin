@@ -3,12 +3,12 @@ const SteamAuth = require("node-steam-openid");
 const axios = require("axios");
 
 const app = express();
-// const PORT = 5000;
+const PORT = 5000;
 
 const steam = new SteamAuth({
-  realm: "http://localhost:3000/",
-  returnUrl: "http://localhost:3000/auth/steam/authenticate",
-  apiKey: "1E0DDC6BB18FAAAE89D3D06505AC82A1",
+  realm: "http://localhost:5000", // Replace with your actual frontend URL
+  returnUrl: "http://localhost:5000/auth/steam/authenticate", // Your return route
+  apiKey: "1E0DDC6BB18FAAAE89D3D06505AC82A1", // Steam API key
 });
 
 // Redirect to Steam login
@@ -50,6 +50,6 @@ app.get("/auth/steam/authenticate", async (req, res) => {
 });
 
 // Start server
-// app.listen(PORT, () => {
-//     console.log(`Server is running on http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
