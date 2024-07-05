@@ -4,7 +4,7 @@ import SteamLogout from "@/assets/images/steam_logout.png";
 import SteamUser from "@/assets/images/steamlogin_user.png";
 import React, { useEffect, useState } from "react";
 
-const SteanLogin: React.FC = () => {
+const SteamLogin: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [username, setUsername] = useState<string>("");
   const [steamID64, setSteamID64] = useState<string>("");
@@ -126,4 +126,4 @@ const SteanLogin: React.FC = () => {
   );
 };
 
-export default SteanLogin;
+export default SteamLogin;
