@@ -14,7 +14,7 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
     "prepare": "husky install"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "https://ezskin-a7t1hq6ux-mohsinsheerazs-projects.vercel.app/",
   "dependencies": {
     "@commitlint/config-conventional": "^17.6.7",
     "@emotion/cache": "^11.11.0",

@@ -6,8 +6,9 @@ const app = express();
 const PORT = 5000;
 
 const steam = new SteamAuth({
-  realm: "http://localhost:5000", // Replace with your actual frontend URL
-  returnUrl: "http://localhost:5000/auth/steam/authenticate", // Your return route
+  realm: "https://ezskin-a7t1hq6ux-mohsinsheerazs-projects.vercel.app/", // Replace with your actual frontend URL
+  returnUrl:
+    "https://ezskin-a7t1hq6ux-mohsinsheerazs-projects.vercel.app/auth/steam/authenticate", // Your return route
   apiKey: "1E0DDC6BB18FAAAE89D3D06505AC82A1", // Steam API key
 });
 
