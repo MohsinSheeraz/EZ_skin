@@ -36,7 +36,8 @@ const SteamLogin: React.FC = () => {
   const handleLogin = async () => {
     try {
       // Redirect to backend for Steam login
-      window.location.href = "http://localhost:5000/auth/steam";
+      window.location.href =
+        "https://ezskin-a7t1hq6ux-mohsinsheerazs-projects.vercel.app/auth/steam";
     } catch (error) {
       console.error("Error logging in:", error);
       // Handle error state or display error to user
