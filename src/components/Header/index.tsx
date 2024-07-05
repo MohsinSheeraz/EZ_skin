@@ -83,7 +83,7 @@ export default function Example() {
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5 flex">
             <span className="sr-only">Your Company</span>
-           <Image className="h-16 w-auto" src="/assets/images/Logo.png" alt="Logo" />
+            <Image src={LOGO} alt="Logo" width={150} height={50} />
           </a>
           <div className="hidden lg:flex gap-7 ml-4">
             <button
