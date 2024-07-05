@@ -15,7 +15,7 @@ import BasicModal from "../modal";
 
 import userIcon from "@/assets/images/userIcon.png";
 import Image from "next/image";
-import LOGO from '@/assets/images/Logo.png';
+import LOGO from "@/assets/images/Logo.png";
 import SteamLogin from "@/app/Steam/page";
 
 const products = [
