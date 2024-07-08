@@ -37,7 +37,7 @@ const SteamLogin: React.FC = () => {
     try {
       // Redirect to backend for Steam login
       window.location.href =
-        "https://ezskin-a7t1hq6ux-mohsinsheerazs-projects.vercel.app/auth/steam";
+        "https://test123-six-kappa.vercel.app/auth/steam";
     } catch (error) {
       console.error("Error logging in:", error);
       // Handle error state or display error to user
