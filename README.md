@@ -39,3 +39,9 @@ To learn more about this example:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Customizing Material UI](https://mui.com/material-ui/customization/how-to-customize/) - approaches to customizing Material UI.
+
+
+## Note
+
+Front End URL: https://ezskin.vercel.app/
+Backend End URL: https://test123-six-kappa.vercel.app/
