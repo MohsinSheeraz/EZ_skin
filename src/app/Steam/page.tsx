@@ -3,6 +3,7 @@ import Image from "next/image";
 import SteamLogout from "@/assets/images/steam_logout.png";
 import SteamUser from "@/assets/images/steamlogin_user.png";
 import React, { useEffect, useState } from "react";
+import DepositModel from "@/components/Header/depositmodal";
 
 const SteamLogin: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -36,8 +37,7 @@ const SteamLogin: React.FC = () => {
   const handleLogin = async () => {
     try {
       // Redirect to backend for Steam login
-      window.location.href =
-        "https://test123-six-kappa.vercel.app/auth/steam";
+      window.location.href = "https://test123-six-kappa.vercel.app/auth/steam";
     } catch (error) {
       console.error("Error logging in:", error);
       // Handle error state or display error to user
@@ -68,11 +68,7 @@ const SteamLogin: React.FC = () => {
       {isLoggedIn && (
         <div className="flex gap-x-8">
           <div className="flex gap-x-12 items-center">
-            <div>
-              <button className="whitespace-nowrap flex items-center text-white rounded-xl gap-2 bg-[#92bb35] px-3 py-2 ">
-                Deposit
-              </button>
-            </div>
+            <DepositModel />
             <svg
               width="20px"
               height="20px"
