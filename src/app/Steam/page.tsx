@@ -4,6 +4,7 @@ import SteamLogout from "@/assets/images/steam_logout.png";
 import SteamUser from "@/assets/images/steamlogin_user.png";
 import React, { useEffect, useState } from "react";
 import DepositModel from "@/components/Header/depositmodal";
+import AccountSetting from "@/components/Header/iconsdropdown";
 
 const SteamLogin: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -69,7 +70,7 @@ const SteamLogin: React.FC = () => {
         <div className="flex gap-x-8">
           <div className="flex gap-x-12 items-center">
             <DepositModel />
-            <svg
+            {/* <svg
               width="20px"
               height="20px"
               viewBox="0 0 24 24"
@@ -108,15 +109,26 @@ const SteamLogin: React.FC = () => {
                   ></path>
                 </g>
               </g>
-            </svg>
-            <div className="text-xs text-white font-normal" id="username">
+            </svg> */}
+            {/* <div className="text-xs text-white font-normal" id="username">
               <Image src={SteamUser} alt="" className="w-10 h-10 mx-auto" />
-              {username}
-            </div>
+            </div> */}
           </div>
-          <button id="logoutButton" onClick={handleLogout}>
+          {/* <button id="logoutButton" onClick={handleLogout}>
             <Image src={SteamLogout} alt="" className="w-10 h-10" />
-          </button>
+          </button> */}
+
+          {/* <div className="flex gap-x-1 items-center">
+            <div className="w-10 h-10 rounded-full bg-blue-800">
+
+            </div>
+            <div className="text-white flex gap-x-1 items-center">
+            user@gmail.com
+            {username}
+            </div>
+          </div> */}
+
+          <AccountSetting user={username} />
         </div>
       )}
     </div>
