@@ -94,7 +94,7 @@ export default function AccountSetting({ user }: Props) {
           <ListItemIcon>
             <LinkIcon fontSize="small" />
           </ListItemIcon>
-          <a href="https://steamcommunity.com/profiles/76561199705043567/tradeoffers/privacy#trade_offer_access_url">
+          <a href="https://test123-six-kappa.vercel.app/trade-url">
             Trade URL
           </a>
         </MenuItem>
