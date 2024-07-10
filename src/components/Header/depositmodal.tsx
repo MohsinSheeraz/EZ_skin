@@ -59,7 +59,7 @@ export default function DepositModel() {
   return (
     <div>
       <Button onClick={handleOpen}>
-        <span className="flex items-center gap-x-2 font-normal text-white font-[Poppins] tracking-tight text-sm">
+        <span className="hover:text-gray-500 flex items-center gap-x-2 font-normal text-white font-[Poppins] tracking-tight text-sm">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
