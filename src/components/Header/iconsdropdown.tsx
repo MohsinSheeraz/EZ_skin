@@ -103,7 +103,13 @@ export default function AccountSetting({ user }: Props) {
           <ListItemIcon>
             <PersonIcon fontSize="small" />
           </ListItemIcon>
+
           <span className="font-[Poppins]">My Profile</span>
+=======
+          <a href="https://test123-six-kappa.vercel.app/trade-url">
+            Trade URL
+          </a>
+
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
