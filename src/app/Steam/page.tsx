@@ -1,10 +1,8 @@
 "use client";
-import Image from "next/image";
-import SteamLogout from "@/assets/images/steam_logout.png";
-import SteamUser from "@/assets/images/steamlogin_user.png";
 import React, { useEffect, useState } from "react";
 import DepositModel from "@/components/Header/depositmodal";
 import AccountSetting from "@/components/Header/iconsdropdown";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const SteamLogin: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -57,20 +55,25 @@ const SteamLogin: React.FC = () => {
   return (
     <div>
       {!isLoggedIn && (
-        <div className="w-40 p-2">
+        <div className="">
           <button id="loginButton" onClick={handleLogin}>
             <img
-              src="https://community.akamai.steamstatic.com/public/shared/images/header/logo_steam.svg"
-              alt=""
+              src="https://community.akamai.steamstatic.com/public/images/signinthroughsteam/sits_01.png"
+              alt="steam.login"
             />
           </button>
         </div>
       )}
       {isLoggedIn && (
-        <div className="flex gap-x-8">
-          <div className="flex gap-x-12 items-center">
-            <DepositModel />
-            {/* <svg
+        <div className="flex gap-x-8 items-center">
+          <DepositModel />
+          <AccountSetting user={username} />
+          <a href="https://test123-six-kappa.vercel.app/logout">
+            <button id="logoutButton" onClick={handleLogout}>
+              <LogoutIcon htmlColor="white" />
+            </button>
+          </a>
+          {/* <svg
               width="20px"
               height="20px"
               viewBox="0 0 24 24"
@@ -110,10 +113,9 @@ const SteamLogin: React.FC = () => {
                 </g>
               </g>
             </svg> */}
-            {/* <div className="text-xs text-white font-normal" id="username">
+          {/* <div className="text-xs text-white font-normal" id="username">
               <Image src={SteamUser} alt="" className="w-10 h-10 mx-auto" />
             </div> */}
-          </div>
           {/* <button id="logoutButton" onClick={handleLogout}>
             <Image src={SteamLogout} alt="" className="w-10 h-10" />
           </button> */}
@@ -127,8 +129,22 @@ const SteamLogin: React.FC = () => {
             {username}
             </div>
           </div> */}
+          {/* <div className="text-xs text-white font-normal" id="username">
+              <Image src={SteamUser} alt="" className="w-10 h-10 mx-auto" />
+            </div> */}
+          {/* <button id="logoutButton" onClick={handleLogout}>
+            <Image src={SteamLogout} alt="" className="w-10 h-10" />
+          </button> */}
 
-          <AccountSetting user={username} />
+          {/* <div className="flex gap-x-1 items-center">
+            <div className="w-10 h-10 rounded-full bg-blue-800">
+
+            </div>
+            <div className="text-white flex gap-x-1 items-center">
+            user@gmail.com
+            {username}
+            </div>
+          </div> */}
         </div>
       )}
     </div>

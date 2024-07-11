@@ -101,6 +101,22 @@ export default function DepositModel() {
           <button className="mt-3 px-8 py-2 text-white bg-blue-400 hover:bg-blue-800 transition rounded-xl">
             Deposit
           </button>
+          <div
+            className="absolute top-0 right-0 p-4 cursor-pointer ease-out hover:scale-y-150  duration-300"
+            onClick={handleClose}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width={20}
+              height={20}
+              viewBox="0 0 50 50"
+              className="hover:fill-red-700"
+            >
+              <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z" />
+            </svg>
+          </div>
         </Box>
       </Modal>
     </div>
