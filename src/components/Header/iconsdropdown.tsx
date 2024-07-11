@@ -6,14 +6,12 @@ import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import SteamLogout from "@/assets/images/steam_logout.png";
-import LinkIcon from "@mui/icons-material/Link";
-import { useState, useEffect } from "react";
+import PersonIcon from "@mui/icons-material/Person";
+import { useState } from "react";
+import ProfileModal from "./profilemodal";
 
 type Props = {
   user: string;
@@ -28,6 +26,8 @@ export default function AccountSetting({ user }: Props) {
     setSteamID64("");
   };
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -35,6 +35,16 @@ export default function AccountSetting({ user }: Props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleProfileClick = () => {
+    setAnchorEl(null); // Close the dropdown
+    setIsProfileModalOpen(true); // Open the modal
+  };
+
+  const handleModalClose = () => {
+    setIsProfileModalOpen(false); // Close the modal
+  };
+
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
@@ -56,7 +66,6 @@ export default function AccountSetting({ user }: Props) {
         id="account-menu"
         open={open}
         onClose={handleClose}
-        onClick={handleClose}
         PaperProps={{
           elevation: 0,
           sx: {
@@ -90,13 +99,11 @@ export default function AccountSetting({ user }: Props) {
           <Avatar /> {user}
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleProfileClick}>
           <ListItemIcon>
-            <LinkIcon fontSize="small" />
+            <PersonIcon fontSize="small" />
           </ListItemIcon>
-          <a href="https://steamcommunity.com/profiles/76561199705043567/tradeoffers/privacy#trade_offer_access_url">
-            Trade URL
-          </a>
+          <span className="font-[Poppins]">My Profile</span>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
@@ -111,15 +118,17 @@ export default function AccountSetting({ user }: Props) {
           <button
             className="font-[Poppins]"
             id="logoutButton"
-            onClick={handleLogout}
+            onClick={handleClose}
           >
             Logout
           </button>
         </MenuItem>
       </Menu>
+      <ProfileModal open={isProfileModalOpen} onClose={handleModalClose} />
     </React.Fragment>
   );
 }
+
 function setIsLoggedIn(arg0: boolean) {
   throw new Error("Function not implemented.");
 }
