@@ -1,6 +1,6 @@
 "use client";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import PersonIcon from "@mui/icons-material/Person";
 import Modal from "@mui/material/Modal";
 import React, { useEffect, useState } from "react";
 
@@ -60,11 +60,10 @@ export default function ProfileModal({ open, onClose }: ProfileModalProps) {
       <Box sx={style} onClick={handleBoxClick}>
         <div className="w-full relative">
           <div className="flex items-center gap-x-5">
-            <div className="h-40 w-40 bg-blue-500 rounded-full">
-              <img
-                src="https://images.immediate.co.uk/production/volatile/sites/3/2023/08/2023.06.28-06.20-boundingintocomics-649c79f009cdf-Cropped-8d74232.png"
-                alt=""
+            <div className="h-40 w-40 bg-blue-500 rounded-full flex justify-center items-center">
+              <PersonIcon
                 className="object-cover w-full h-full rounded-full"
+                htmlColor="white"
               />
             </div>
             <div className="text-4xl font-[900] flex flex-col uppercase">

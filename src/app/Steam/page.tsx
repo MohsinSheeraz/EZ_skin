@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import DepositModel from "@/components/Header/depositmodal";
 import AccountSetting from "@/components/Header/iconsdropdown";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const SteamLogin: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -35,7 +36,7 @@ const SteamLogin: React.FC = () => {
   const handleLogin = async () => {
     try {
       // Redirect to backend for Steam login
-      window.location.href = "http://localhost:5000/auth/steam";
+      window.location.href = "https://test123-six-kappa.vercel.app/auth/steam";
     } catch (error) {
       console.error("Error logging in:", error);
       // Handle error state or display error to user
@@ -54,19 +55,24 @@ const SteamLogin: React.FC = () => {
   return (
     <div>
       {!isLoggedIn && (
-        <div className="w-40 p-2">
+        <div className="">
           <button id="loginButton" onClick={handleLogin}>
             <img
-              src="https://community.akamai.steamstatic.com/public/shared/images/header/logo_steam.svg"
-              alt=""
+              src="https://community.akamai.steamstatic.com/public/images/signinthroughsteam/sits_01.png"
+              alt="steam.login"
             />
           </button>
         </div>
       )}
       {isLoggedIn && (
-        <div className="flex gap-x-8">
+        <div className="flex gap-x-8 items-center">
           <DepositModel />
           <AccountSetting user={username} />
+          <a href="https://test123-six-kappa.vercel.app/logout">
+            <button id="logoutButton" onClick={handleLogout}>
+              <LogoutIcon htmlColor="white" />
+            </button>
+          </a>
           {/* <svg
               width="20px"
               height="20px"
