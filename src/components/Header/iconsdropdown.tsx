@@ -104,10 +104,8 @@ export default function AccountSetting({ user }: Props) {
             <PersonIcon fontSize="small" />
           </ListItemIcon>
 
-          <span className="font-[Poppins]">My Profile</span>
-=======
           <a href="https://test123-six-kappa.vercel.app/trade-url">
-            Trade URL
+          <span className="font-[Poppins]">My Profile</span>
           </a>
 
         </MenuItem>
@@ -117,7 +115,7 @@ export default function AccountSetting({ user }: Props) {
           </ListItemIcon>
           <span className="font-[Poppins]">Settings</span>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        {/* <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
@@ -128,7 +126,7 @@ export default function AccountSetting({ user }: Props) {
           >
             Logout
           </button>
-        </MenuItem>
+        </MenuItem> */}
       </Menu>
       <ProfileModal open={isProfileModalOpen} onClose={handleModalClose} />
     </React.Fragment>
