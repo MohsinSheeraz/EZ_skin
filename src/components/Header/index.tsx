@@ -1,73 +1,84 @@
 "use client";
 import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
-import { PhoneIcon, PlayCircleIcon } from "@heroicons/react/20/solid";
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import BasicModal from "../modal";
-
 import Image from "next/image";
 import LOGO from "@/assets/images/Logo.png";
 import SteamLogin from "@/app/Steam/page";
+import DepositModel from "./depositmodal";
+import React, { useEffect, useState } from "react";
 
-const products = [
-  {
-    name: "Analytics",
-    description: "Get a better understanding of your traffic",
-    href: "#",
-    icon: ChartPieIcon,
-  },
-  {
-    name: "Engagement",
-    description: "Speak directly to your customers",
-    href: "#",
-    icon: CursorArrowRaysIcon,
-  },
-  {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: FingerPrintIcon,
-  },
-  {
-    name: "Integrations",
-    description: "Connect with third-party tools",
-    href: "#",
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: "Automations",
-    description: "Build strategic funnels that will convert",
-    href: "#",
-    icon: ArrowPathIcon,
-  },
-];
-const callsToAction = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
-];
+// const products = [
+//   {
+//     name: "Analytics",
+//     description: "Get a better understanding of your traffic",
+//     href: "#",
+//     icon: ChartPieIcon,
+//   },
+//   {
+//     name: "Engagement",
+//     description: "Speak directly to your customers",
+//     href: "#",
+//     icon: CursorArrowRaysIcon,
+//   },
+//   {
+//     name: "Security",
+//     description: "Your customers’ data will be safe and secure",
+//     href: "#",
+//     icon: FingerPrintIcon,
+//   },
+//   {
+//     name: "Integrations",
+//     description: "Connect with third-party tools",
+//     href: "#",
+//     icon: SquaresPlusIcon,
+//   },
+//   {
+//     name: "Automations",
+//     description: "Build strategic funnels that will convert",
+//     href: "#",
+//     icon: ArrowPathIcon,
+//   },
+// ];
+// const callsToAction = [
+//   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
+//   { name: "Contact sales", href: "#", icon: PhoneIcon },
+// ];
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(" ");
-}
-
-// const isUserLoggedIn = () => {
-//   const isLoggedIn = false;
-//   return isLoggedIn;
-// };
+// function classNames(...classes: any) {
+//   return classes.filter(Boolean).join(" ");
+// }
 
 export default function Example() {
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const steamIDFromURL = urlParams.get("steamID64");
+    const usernameFromURL = urlParams.get("username");
+    const avatarString = urlParams.get("avatar");
+
+    if (steamIDFromURL && usernameFromURL) {
+      localStorage.setItem("steamID64", steamIDFromURL);
+      localStorage.setItem("username", usernameFromURL);
+      setIsLoggedIn(true);
+    } else {
+      const storedSteamID64 = localStorage.getItem("steamID64");
+      const storedUsername = localStorage.getItem("username");
+
+      if (storedSteamID64 && storedUsername) {
+        setIsLoggedIn(true);
+      }
+    }
+  }, []);
+  const handleLogout = () => {
+    localStorage.removeItem("steamID64");
+    localStorage.removeItem("username");
+    setIsLoggedIn(false);
+  };
   return (
     <header className="bg-[#3D3A40]">
       <BasicModal
@@ -84,7 +95,7 @@ export default function Example() {
             <span className="sr-only">Your Company</span>
             <Image src={LOGO} alt="Logo" width={150} height={50} />
           </a>
-          <div className="hidden lg:flex gap-7 ml-4">
+          <div className="hidden lg:flex gap-7 items-center ml-4">
             <button
               onClick={handleOpen}
               className="text-sm flex items-center font-semibold leading-6 text-[#9B9BA1]"
@@ -97,6 +108,13 @@ export default function Example() {
             >
               FAQ
             </a>
+            {isLoggedIn && (
+              <div>
+                <button id="loginButton">
+                  <DepositModel />
+                </button>
+              </div>
+            )}
           </div>
         </div>
         <div className="!flex lg:!hidden">
@@ -110,61 +128,6 @@ export default function Example() {
           </button>
         </div>
         <PopoverGroup className="!hidden lg:!flex lg:gap-x-12">
-          {/* {isUserLoggedIn() && (
-            <button className="whitespace-nowrap flex items-center text-white rounded-xl gap-2 bg-[#92bb35] px-2 py-1 ">
-              Deposit
-            </button>
-          )} */}
-
-          {/* <a
-            href="/login"
-            className="text-sm font-semibold leading-6 text-[#9B9BA1]">
-
-            <img src="https://community.akamai.steamstatic.com/public/images/signinthroughsteam/sits_02.png" alt="" />
-          </a> */}
-          {/* <button className="whitespace-nowrap flex items-center  gap-2 text-[#92bb35] px-2 py-1 border-2 border-[#92bb35]">
-            <svg
-              fill="#92bb35"
-              width={"30px"}
-              viewBox="0 0 512 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                <title>ionicons-v5_logos</title>
-                <path d="M478.8,208.2a36,36,0,1,1-36-36A36,36,0,0,1,478.8,208.2ZM442.6,139a69.42,69.42,0,0,0-69.4,68.7l-43.2,62a48.86,48.86,0,0,0-5.4-.3,51.27,51.27,0,0,0-26.4,7.3L102.4,198a51.8,51.8,0,1,0-50.6,62.9,51.27,51.27,0,0,0,26.4-7.3L274,332.2a51.76,51.76,0,0,0,102.1-5.9l66.5-48.6a69.35,69.35,0,1,0,0-138.7Zm0,22.9a46.45,46.45,0,1,1-46.5,46.5A46.54,46.54,0,0,1,442.6,161.9Zm-390.8,9a38.18,38.18,0,0,1,33.7,20.2l-18.9-7.6v.1a30.21,30.21,0,0,0-22.6,56v.1l16.1,6.4a36.8,36.8,0,0,1-8.2.9,38.05,38.05,0,0,1-.1-76.1ZM324.6,283.1A38.1,38.1,0,1,1,290.9,339c6.3,2.5,12.5,5,18.8,7.6a30.27,30.27,0,1,0,22.5-56.2L316.3,284A46.83,46.83,0,0,1,324.6,283.1Z"></path>
-              </g>
-            </svg>
-            Sign in with Steam
-          </button> */}
-          {/* {!isUserLoggedIn() ? (
-            <img
-              className="cursor-pointer"
-              src="https://community.akamai.steamstatic.com/public/images/signinthroughsteam/sits_01.png"
-              alt=""
-            />
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 200 200"
-              stroke="#ffffff"
-              xmlSpace="preserve"
-              height={50}
-              width={50}
-            >
-              <path
-                fill="#282828"
-                d="M135.832 140.848h-70.9c-2.9 0-5.6-1.6-7.4-4.5-1.4-2.3-1.4-5.7 0-8.6l4-8.2c2.8-5.6 9.7-9.1 14.9-9.5 1.7-.1 5.1-.8 8.5-1.6 2.5-.6 3.9-1 4.7-1.3-.2-.7-.6-1.5-1.1-2.2-6-4.7-9.6-12.6-9.6-21.1 0-14 9.6-25.3 21.5-25.3s21.5 11.4 21.5 25.3c0 8.5-3.6 16.4-9.6 21.1-.5.7-.9 1.4-1.1 2.1.8.3 2.2.7 4.6 1.3 3 .7 6.6 1.3 8.4 1.5 5.3.5 12.1 3.8 14.9 9.4l3.9 7.9c1.5 3 1.5 6.8 0 9.1-1.6 2.9-4.4 4.6-7.2 4.6zm-35.4-78.2c-9.7 0-17.5 9.6-17.5 21.3 0 7.4 3.1 14.1 8.2 18.1.1.1.3.2.4.4 1.4 1.8 2.2 3.8 2.2 5.9 0 .6-.2 1.2-.7 1.6-.4.3-1.4 1.2-7.2 2.6-2.7.6-6.8 1.4-9.1 1.6-4.1.4-9.6 3.2-11.6 7.3l-3.9 8.2c-.8 1.7-.9 3.7-.2 4.8.8 1.3 2.3 2.6 4 2.6h70.9c1.7 0 3.2-1.3 4-2.6.6-1 .7-3.4-.2-5.2l-3.9-7.9c-2-4-7.5-6.8-11.6-7.2-2-.2-5.8-.8-9-1.6-5.8-1.4-6.8-2.3-7.2-2.5-.4-.4-.7-1-.7-1.6 0-2.1.8-4.1 2.2-5.9.1-.1.2-.3.4-.4 5.1-3.9 8.2-10.7 8.2-18-.2-11.9-8-21.5-17.7-21.5z"
-              />
-            </svg>
-          )} */}
-
-          {/* steamlogin */}
           <SteamLogin />
         </PopoverGroup>
       </nav>

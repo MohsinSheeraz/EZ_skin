@@ -12,12 +12,14 @@ import Logout from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 import { useState } from "react";
 import ProfileModal from "./profilemodal";
+import TradeURLModal from "./tradeURLmodal";
 
 type Props = {
   user: string;
+  userProfile: string;
 };
 
-export default function AccountSetting({ user }: Props) {
+export default function AccountSetting({ user, userProfile }: Props) {
   const handleLogout = () => {
     localStorage.removeItem("steamID64");
     localStorage.removeItem("username");
@@ -57,7 +59,7 @@ export default function AccountSetting({ user }: Props) {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}></Avatar>
+            <img className="rounded-full h-9 w-9" src={userProfile} alt="" />
           </IconButton>
         </Tooltip>
       </Box>
@@ -96,7 +98,8 @@ export default function AccountSetting({ user }: Props) {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> {user}
+          <img className="rounded-full w-9 h-9" src={userProfile} alt="" />
+          <span className="!font-Poppins">{user}</span>
         </MenuItem>
         <Divider />
         <MenuItem onClick={handleProfileClick}>
@@ -109,6 +112,9 @@ export default function AccountSetting({ user }: Props) {
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
+          {/* <span className="font-[Poppins]">Settings</span> */}
+          <TradeURLModal />
+        </MenuItem>
           <span className="font-[Poppins]">Settings</span>
         </MenuItem>
         {/* <MenuItem onClick={handleClose}>
@@ -124,7 +130,23 @@ export default function AccountSetting({ user }: Props) {
           </button>
         </MenuItem> */}
       </Menu>
-      <ProfileModal open={isProfileModalOpen} onClose={handleModalClose} />
+      <ProfileModal
+        open={isProfileModalOpen}
+        onClose={handleModalClose}
+        UserProfileLarge={userProfile}
+      />
+      {/* <MenuItem onClick={handleClose}>
+        <ListItemIcon>
+          <Logout fontSize="small" />
+        </ListItemIcon>
+        <button
+          className="font-[Poppins]"
+          id="logoutButton"
+          onClick={handleClose}
+        >
+          Logout
+        </button>
+      </MenuItem> */}
     </React.Fragment>
   );
 }
