@@ -24,9 +24,14 @@ const style = {
 type ProfileModalProps = {
   open: boolean;
   onClose: () => void;
+  UserProfileLarge?: string;
 };
 
-export default function ProfileModal({ open, onClose }: ProfileModalProps) {
+export default function ProfileModal({
+  open,
+  onClose,
+  UserProfileLarge,
+}: ProfileModalProps) {
   const [username, setUsername] = useState<string>("");
 
   useEffect(() => {
@@ -61,9 +66,14 @@ export default function ProfileModal({ open, onClose }: ProfileModalProps) {
         <div className="w-full relative">
           <div className="flex items-center gap-x-5">
             <div className="h-40 w-40 bg-blue-500 rounded-full flex justify-center items-center">
-              <PersonIcon
+              {/* <PersonIcon
                 className="object-cover w-full h-full rounded-full"
                 htmlColor="white"
+              /> */}
+              <img
+                src={UserProfileLarge}
+                className="rounded-full w-40 h-40"
+                alt="steam.userprofileimg"
               />
             </div>
             <div className="text-4xl font-[900] flex flex-col uppercase">
@@ -107,18 +117,11 @@ export default function ProfileModal({ open, onClose }: ProfileModalProps) {
             <h3 className="font-medium text-2xl mb-2">
               Save Your <span className="font-bold">Trade URL</span>:
             </h3>
-            <p>
-              There should be some content to display. You can find your{" "}
-              <span className="uppercase">trade url</span>{" "}
-              <a
-                href="https://steamcommunity.com/my/tradeoffers/privacy#trade_offer_access_url"
-                target="_blank"
-                className="text-blue-500"
-              >
-                here!
-              </a>{" "}
+            <p className="animate-bounce transition">
+              You can find your <span className="uppercase">trade url</span> in
+              profile dropdown in Setting option
             </p>
-            <div className="flex gap-x-0 mt-1">
+            {/* <div className="flex gap-x-0 mt-1">
               <input
                 type="text"
                 name=""
@@ -129,7 +132,7 @@ export default function ProfileModal({ open, onClose }: ProfileModalProps) {
               <button className="rounded-l-none px-2 rounded-lg bg-blue-500 hover:bg-blue-700 transition text-sm text-white font-medium">
                 Save
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="w-full flex justify-center gap-x-5">
             <div className="w-1/2">

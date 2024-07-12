@@ -19,10 +19,12 @@ const style = {
 
 function ChildModal() {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
+  const handleOpen = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent event propagation
     setOpen(true);
   };
-  const handleClose = () => {
+  const handleClose = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent event propagation
     setOpen(false);
   };
 
@@ -47,32 +49,27 @@ function ChildModal() {
   );
 }
 
-export default function DepositModel() {
+export default function TradeURLModal() {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
+  const handleOpen = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent event propagation
     setOpen(true);
   };
-  const handleClose = () => {
+  const handleClose = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent event propagation
     setOpen(false);
+  };
+
+  const handleModalContentClick = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent event propagation within the modal content
   };
 
   return (
     <div>
       <Button onClick={handleOpen}>
-        <span className="hover:text-gray-500 flex items-center gap-x-2 font-normal text-green-600 font-[Poppins] tracking-tight text-sm">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width={30}
-            height={30}
-            viewBox="0 0 50 50"
-            fill="green"
-          >
-            <path d="M25,2C12.317,2,2,12.317,2,25s10.317,23,23,23s23-10.317,23-23S37.683,2,25,2z M37,26H26v11h-2V26H13v-2h11V13h2v11h11V26z" />
-          </svg>
-          Deposit
-        </span>
+        <p className="font-[Poppins] -ml-2 text-base font-light text-left text-black">
+          Setting
+        </p>
       </Button>
       <Modal
         open={open}
@@ -89,18 +86,33 @@ export default function DepositModel() {
             textAlign: "center",
             paddingTop: "50px",
           }}
+          onClick={handleModalContentClick}
         >
           <h2
             id="parent-modal-title"
             className="text-4xl font-bold text-center capitalize mb-4"
           >
-            Live Gaming
+            Below
           </h2>
-          <ModalSelect />
-
-          <button className="mt-3 px-8 py-2 text-white bg-blue-400 hover:bg-blue-800 transition rounded-xl">
-            Deposit
-          </button>
+          <a
+            href="https://steamcommunity.com/my/tradeoffers/privacy#trade_offer_access_url"
+            target="_blank"
+          >
+            Your Trade URL <br />
+            <span className="text-blue-500">here!</span>
+          </a>
+          <div className="flex gap-x-0 mt-1">
+            <input
+              type="text"
+              name=""
+              id=""
+              className="border-r-0 rounded-r-none w-full p-2 bg-slate-100 rounded-lg border border-gray-700 font-normal focus:outline-none"
+              placeholder="Enter Your Trade Url Here"
+            />
+            <button className="rounded-l-none px-2 rounded-lg bg-blue-500 hover:bg-blue-700 transition text-sm text-white font-medium">
+              Save
+            </button>
+          </div>
           <div
             className="absolute top-0 right-0 p-4 cursor-pointer ease-out hover:scale-y-150  duration-300"
             onClick={handleClose}
