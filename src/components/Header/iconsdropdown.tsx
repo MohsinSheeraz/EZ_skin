@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -8,11 +7,11 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 import { useState } from "react";
 import ProfileModal from "./profilemodal";
 import TradeURLModal from "./tradeURLmodal";
+import { Logout } from "@mui/icons-material";
 
 type Props = {
   user: string;
@@ -27,6 +26,7 @@ export default function AccountSetting({ user, userProfile }: Props) {
     setUsername("");
     setSteamID64("");
   };
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
 
@@ -112,22 +112,13 @@ export default function AccountSetting({ user, userProfile }: Props) {
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          {/* <span className="font-[Poppins]">Settings</span> */}
           <TradeURLModal />
         </MenuItem>
-          <span className="font-[Poppins]">Settings</span>
-        </MenuItem>
-        {/* <MenuItem onClick={handleClose}>
+        {/* <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          <button
-            className="font-[Poppins]"
-            id="logoutButton"
-            onClick={handleClose}
-          >
-            Logout
-          </button>
+          <span className="font-[Poppins]">Logout</span>
         </MenuItem> */}
       </Menu>
       <ProfileModal
@@ -135,30 +126,18 @@ export default function AccountSetting({ user, userProfile }: Props) {
         onClose={handleModalClose}
         UserProfileLarge={userProfile}
       />
-      {/* <MenuItem onClick={handleClose}>
-        <ListItemIcon>
-          <Logout fontSize="small" />
-        </ListItemIcon>
-        <button
-          className="font-[Poppins]"
-          id="logoutButton"
-          onClick={handleClose}
-        >
-          Logout
-        </button>
-      </MenuItem> */}
     </React.Fragment>
   );
 }
 
-function setIsLoggedIn(arg0: boolean) {
-  throw new Error("Function not implemented.");
+function setIsLoggedIn(isLoggedIn: boolean) {
+  console.log("Setting isLoggedIn to", isLoggedIn);
 }
 
-function setUsername(arg0: string) {
-  throw new Error("Function not implemented.");
+function setUsername(username: string) {
+  console.log("Setting username to", username);
 }
 
-function setSteamID64(arg0: string) {
-  throw new Error("Function not implemented.");
+function setSteamID64(steamID64: string) {
+  console.log("Setting steamID64 to", steamID64);
 }
