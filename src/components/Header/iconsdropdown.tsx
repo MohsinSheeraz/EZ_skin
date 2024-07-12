@@ -115,6 +115,20 @@ export default function AccountSetting({ user, userProfile }: Props) {
           {/* <span className="font-[Poppins]">Settings</span> */}
           <TradeURLModal />
         </MenuItem>
+          <span className="font-[Poppins]">Settings</span>
+        </MenuItem>
+        {/* <MenuItem onClick={handleClose}>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          <button
+            className="font-[Poppins]"
+            id="logoutButton"
+            onClick={handleClose}
+          >
+            Logout
+          </button>
+        </MenuItem> */}
       </Menu>
       <ProfileModal
         open={isProfileModalOpen}
