@@ -10,7 +10,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "white",
+  bgcolor: "#3D3A40",
   boxShadow: 24,
   pt: 2,
   px: 4,
@@ -80,7 +80,7 @@ export default function TradeURLModal() {
         <Box
           sx={{
             ...style,
-            height: 300,
+            height: 250,
             width: 400,
             borderRadius: 4,
             textAlign: "center",
@@ -90,16 +90,16 @@ export default function TradeURLModal() {
         >
           <h2
             id="parent-modal-title"
-            className="text-4xl font-bold text-center capitalize mb-4"
+            className="text-4xl font-bold text-center capitalize mb-4 text-white"
           >
-            Below
+            Trade URL
           </h2>
           <a
             href="https://steamcommunity.com/my/tradeoffers/privacy#trade_offer_access_url"
             target="_blank"
+            className="text-white"
           >
-            Your Trade URL <br />
-            <span className="text-blue-500">here!</span>
+            Your Trade URL <span className="text-blue-500">here!</span>
           </a>
           <div className="flex gap-x-0 mt-1">
             <input
@@ -124,6 +124,7 @@ export default function TradeURLModal() {
               width={20}
               height={20}
               viewBox="0 0 50 50"
+              fill="white"
               className="hover:fill-red-700"
             >
               <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z" />

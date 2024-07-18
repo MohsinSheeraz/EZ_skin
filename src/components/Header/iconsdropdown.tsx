@@ -11,8 +11,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import { useState } from "react";
 import ProfileModal from "./profilemodal";
 import TradeURLModal from "./tradeURLmodal";
-import { Logout } from "@mui/icons-material";
-
+import ContactSupportIcon from "@mui/icons-material/ContactSupport";
+import SupportModal from "./supportmodal";
 type Props = {
   user: string;
   userProfile: string;
@@ -99,7 +99,9 @@ export default function AccountSetting({ user, userProfile }: Props) {
       >
         <MenuItem onClick={handleClose}>
           <img className="rounded-full w-9 h-9" src={userProfile} alt="" />
-          <span className="!font-Poppins">{user}</span>
+          <span className="font-[Poppins] capitalize font-semibold ml-2">
+            {user}
+          </span>
         </MenuItem>
         <Divider />
         <MenuItem onClick={handleProfileClick}>
@@ -114,12 +116,13 @@ export default function AccountSetting({ user, userProfile }: Props) {
           </ListItemIcon>
           <TradeURLModal />
         </MenuItem>
-        {/* <MenuItem onClick={handleLogout}>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
-            <Logout fontSize="small" />
+            <ContactSupportIcon fontSize="small" />
           </ListItemIcon>
-          <span className="font-[Poppins]">Logout</span>
-        </MenuItem> */}
+          {/* <span className="font-[Poppins]">Support</span> */}
+          <SupportModal btntext="Support" />
+        </MenuItem>
       </Menu>
       <ProfileModal
         open={isProfileModalOpen}

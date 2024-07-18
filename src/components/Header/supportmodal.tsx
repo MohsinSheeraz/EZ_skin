@@ -19,10 +19,12 @@ const style = {
 
 function ChildModal() {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
+  const handleOpen = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent event propagation
     setOpen(true);
   };
-  const handleClose = () => {
+  const handleClose = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent event propagation
     setOpen(false);
   };
 
@@ -36,7 +38,7 @@ function ChildModal() {
         aria-describedby="child-modal-description"
       >
         <Box sx={{ ...style, width: 200 }}>
-          <h2 id="child-modal-title">Add To Jackpot</h2>
+          <h2 id="child-modal-title">Live Gaming</h2>
           <p id="child-modal-description">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           </p>
@@ -47,32 +49,31 @@ function ChildModal() {
   );
 }
 
-export default function DepositModel() {
+type Props = {
+  btntext: string;
+};
+
+export default function SupportModal({ btntext }: Props) {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
+  const handleOpen = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent event propagation
     setOpen(true);
   };
-  const handleClose = () => {
+  const handleClose = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent event propagation
     setOpen(false);
+  };
+
+  const handleModalContentClick = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent event propagation within the modal content
   };
 
   return (
     <div>
       <Button onClick={handleOpen}>
-        <div className="flex items-center gap-x-2 font-normal text-white font-[Poppins] tracking-tight text-base bg-green-600 p-3 rounded-md hover:-translate-y-1 transition">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width={30}
-            height={30}
-            viewBox="0 0 50 50"
-            fill="white"
-          >
-            <path d="M25,2C12.317,2,2,12.317,2,25s10.317,23,23,23s23-10.317,23-23S37.683,2,25,2z M37,26H26v11h-2V26H13v-2h11V13h2v11h11V26z" />
-          </svg>
-          Add To Jackpot
-        </div>
+        <p className="font-[Poppins] -ml-2 text-base font-normal text-gray-700 -mt-2">
+          {btntext}
+        </p>
       </Button>
       <Modal
         open={open}
@@ -83,24 +84,29 @@ export default function DepositModel() {
         <Box
           sx={{
             ...style,
-            height: 300,
+            height: 220,
             width: 400,
             borderRadius: 4,
-            textAlign: "center",
-            paddingTop: "50px",
+            padding: 3,
           }}
+          onClick={handleModalContentClick}
         >
           <h2
             id="parent-modal-title"
-            className="text-4xl font-bold text-center capitalize mb-4 text-white"
+            className="text-4xl font-bold capitalize mb-4 text-white"
           >
-            Add To Jackpot
+            Support:
           </h2>
-          <ModalSelect />
-
-          <button className="mt-3 px-8 py-2 text-white  bg-green-500 hover:bg-green-700 transition hover:translate-y-1 rounded-xl">
-            Deposit
-          </button>
+          <p className="text-white">
+            For Issues please contact our Support on Discord:{" "}
+            <a href="" className="text-blue-500">
+              JuicySkinsSupport
+            </a>{" "}
+            or send us an E-Mail with the Jackpot Number to:{" "}
+            <a href="mailto:JuicySkinsMOD@gmail.com" className="text-blue-500">
+              JuicySkinsMOD@gmail.com
+            </a>
+          </p>
           <div
             className="absolute top-0 right-0 p-4 cursor-pointer ease-out hover:scale-y-150  duration-300"
             onClick={handleClose}
@@ -111,8 +117,8 @@ export default function DepositModel() {
               y="0px"
               width={20}
               height={20}
-              fill="white"
               viewBox="0 0 50 50"
+              fill="white"
               className="hover:fill-red-700"
             >
               <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z" />

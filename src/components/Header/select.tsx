@@ -18,7 +18,7 @@ export default function ModalSelect() {
 
   return (
     <Listbox value={selected} onChange={setSelected}>
-      <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900 text-center">
+      <Listbox.Label className="block text-sm font-medium leading-6 text-gray-300 text-center">
         Select Level:
       </Listbox.Label>
       <div className="relative mt-2">
