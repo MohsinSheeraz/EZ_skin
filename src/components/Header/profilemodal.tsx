@@ -13,7 +13,7 @@ const style = {
   height: "auto",
   maxHeight: "90vh",
   overflowY: "auto",
-  bgcolor: "white",
+  bgcolor: "#2C2C2E",
   boxShadow: 24,
   borderRadius: 4,
 };
@@ -59,7 +59,15 @@ export default function ProfileModal({
     >
       <Box sx={style} onClick={handleBoxClick}>
         <div className="w-full">
-          <div className="w-full flex flex-col gap-y-2 justify-center items-center h-[30vh] bg-[#3D3A40]">
+          <div
+            className="w-full flex flex-col gap-y-2 justify-center items-center h-[30vh] bg-[#3D3A40] grayscale"
+            style={{
+              backgroundImage:
+                'url("https://cdn.vox-cdn.com/thumbor/RqHrFJDREMKw3WrqWdBuFGrg-S4=/726x0:1920x620/1200x675/filters:focal(1223x18:1529x324)/cdn.vox-cdn.com/uploads/chorus_image/image/72723842/counter_strike_2_logo_characters.0.jpg")',
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
             <img
               src={UserProfileLarge}
               className="rounded-full w-32 h-32 border border-white p-1"
@@ -70,38 +78,36 @@ export default function ProfileModal({
             </span>
           </div>
           <div className="p-5">
-            <h1 className="text-lg font-bold tracking-tight uppercase text-[#3D3A40] px-7">
+            <h1 className="text-lg font-bold tracking-tight uppercase text-white px-7">
               Statistics:
             </h1>
             <div className="flex justify-center gap-x-10">
               <div className="px-3 py-1 text-center">
-                <div className="text-green-500 group shadow-lg px-5 py-3 rounded-lg transition ease-out hover:-translate-y-1 hover:scale-110 hover:text-white hover:bg-green-500 duration-300 cursor-pointer">
+                <div className="text-green-500 group shadow-xl px-5 py-3 rounded-lg transition ease-out hover:-translate-y-1 hover:scale-110 hover:text-white hover:bg-green-500 duration-300 cursor-pointer">
                   $32.00
                 </div>
-                <h4 className="text-base font-medium text-gray-400">
-                  Deposited
-                </h4>
+                <h4 className="text-base font-medium text-white">Deposited</h4>
               </div>
               <div className="px-3 py-1 text-center">
-                <div className="text-green-500 group shadow-lg px-5 py-3 rounded-lg transition ease-out hover:-translate-y-1 hover:scale-110 hover:text-white hover:bg-green-500 duration-300 cursor-pointer">
+                <div className="text-green-500 group shadow-xl px-5 py-3 rounded-lg transition ease-out hover:-translate-y-1 hover:scale-110 hover:text-white hover:bg-green-500 duration-300 cursor-pointer">
                   $9.00
                 </div>
-                <h4 className="text-base font-medium text-gray-400">
-                  Total Won
-                </h4>
+                <h4 className="text-base font-medium text-white">Total Won</h4>
               </div>
               <div className="px-3 py-1 text-center">
-                <div className="text-red-500 group shadow-lg px-5 py-3 rounded-lg transition ease-out hover:-translate-y-1 hover:scale-110 hover:text-white hover:bg-red-500 duration-300 cursor-pointer">
+                <div className="text-red-500 group shadow-xl px-5 py-3 rounded-lg transition ease-out hover:-translate-y-1 hover:scale-110 hover:text-white hover:bg-red-500 duration-300 cursor-pointer">
                   $-23.00
                 </div>
-                <h4 className="text-base font-medium text-gray-400">Profit</h4>
+                <h4 className="text-base font-medium text-white">Profit</h4>
               </div>
             </div>
           </div>
           <div className="flex gap-x-5 p-5">
             <div className="w-1/2">
               <div className="mt-2">
-                <h3 className="font-semibold text-xl">Referral Code:</h3>
+                <h3 className="font-semibold text-xl text-white">
+                  Referral Code:
+                </h3>
                 <div className="flex gap-x-0 mt-1">
                   <input
                     type="text"
@@ -116,14 +122,14 @@ export default function ProfileModal({
             </div>
             <div className="w-1/2">
               <div className="mt-2">
-                <div className="flex justify-start items-center gap-x-3">
+                <div className="flex justify-start items-center gap-x-3 text-white">
                   <h3 className="capitalize text-xl font-semibold">
                     Double Up!
                   </h3>
                   <input type="checkbox" className="w-4 h-4" />
                   <span className="font-medium">Enabled</span>
                 </div>
-                <p className="text-sm">
+                <p className="text-sm text-white">
                   Now winning a coinflip. Selected games under 20 Skins will be
                   given the opportunity to instantly relist your winnings tax
                   free.
@@ -132,22 +138,22 @@ export default function ProfileModal({
             </div>
           </div>
           <div className="w-full p-5 overflow-x-auto">
-            <table className="table mx-auto mt-10">
+            <table className="table mx-auto mt-10 text-white">
               <thead>
                 <tr className="flex gap-x-0 justify-center text-sm">
-                  <th className="border border-gray-800 px-3 py-3 flex items-center">
+                  <th className="border border-gray-200 px-3 py-3 flex items-center">
                     Winner
                   </th>
-                  <th className="border border-gray-800 px-3 flex items-center">
+                  <th className="border border-gray-200 px-3 flex items-center">
                     Amount
                   </th>
-                  <th className="border border-gray-800 px-3 flex items-center">
+                  <th className="border border-gray-200 px-3 flex items-center">
                     Chance
                   </th>
-                  <th className="border border-gray-800 px-3 flex items-center">
+                  <th className="border border-gray-200 px-3 flex items-center">
                     Gamemode
                   </th>
-                  <th className="border border-gray-800 px-3 flex items-center">
+                  <th className="border border-gray-200 px-3 flex items-center">
                     Winning Trade
                   </th>
                 </tr>

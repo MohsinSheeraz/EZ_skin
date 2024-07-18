@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import ModalSelect from "./select";
+import MoneyImg from "@/assets/images/money-bag.png";
+import Image from "next/image";
 
 const style = {
   position: "absolute" as "absolute",
@@ -59,19 +61,9 @@ export default function DepositModel() {
   return (
     <div>
       <Button onClick={handleOpen}>
-        <div className="flex items-center gap-x-2 font-normal text-white font-[Poppins] tracking-tight text-base bg-green-600 p-3 rounded-md hover:-translate-y-1 transition">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width={30}
-            height={30}
-            viewBox="0 0 50 50"
-            fill="white"
-          >
-            <path d="M25,2C12.317,2,2,12.317,2,25s10.317,23,23,23s23-10.317,23-23S37.683,2,25,2z M37,26H26v11h-2V26H13v-2h11V13h2v11h11V26z" />
-          </svg>
-          Add To Jackpot
+        <div className="flex items-center gap-x-2 font-normal text-white font-[Poppins] tracking-tight text-base bg-green-600 p-2 rounded-md hover:-translate-y-1 transition">
+          <Image src={MoneyImg} alt="" className="w-7 h-7" />
+          Deposit
         </div>
       </Button>
       <Modal
