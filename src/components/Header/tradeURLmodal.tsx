@@ -61,7 +61,7 @@ export default function TradeURLModal() {
   };
 
   const handleModalContentClick = (event: React.MouseEvent) => {
-    event.stopPropagation(); // Prevent event propagation within the modal content
+    event.stopPropagation();
   };
 
   return (

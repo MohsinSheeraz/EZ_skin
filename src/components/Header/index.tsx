@@ -7,6 +7,7 @@ import LOGO from "@/assets/images/Logo.png";
 import SteamLogin from "@/app/Steam/page";
 import DepositModel from "./depositmodal";
 import React, { useEffect, useState } from "react";
+import SkinsData from "./skinsdata";
 
 // const products = [
 //   {

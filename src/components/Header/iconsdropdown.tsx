@@ -13,6 +13,7 @@ import ProfileModal from "./profilemodal";
 import TradeURLModal from "./tradeURLmodal";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import SupportModal from "./supportmodal";
+import InventoryModal from "./inventoryModal";
 type Props = {
   user: string;
   userProfile: string;
@@ -39,12 +40,12 @@ export default function AccountSetting({ user, userProfile }: Props) {
   };
 
   const handleProfileClick = () => {
-    setAnchorEl(null); // Close the dropdown
-    setIsProfileModalOpen(true); // Open the modal
+    setAnchorEl(null);
+    setIsProfileModalOpen(true);
   };
 
   const handleModalClose = () => {
-    setIsProfileModalOpen(false); // Close the modal
+    setIsProfileModalOpen(false);
   };
 
   return (
@@ -116,11 +117,16 @@ export default function AccountSetting({ user, userProfile }: Props) {
           </ListItemIcon>
           <TradeURLModal />
         </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon>
+            <Settings fontSize="small" />
+          </ListItemIcon>
+          <InventoryModal />
+        </MenuItem>
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <ContactSupportIcon fontSize="small" />
           </ListItemIcon>
-          {/* <span className="font-[Poppins]">Support</span> */}
           <SupportModal btntext="Support" />
         </MenuItem>
       </Menu>
