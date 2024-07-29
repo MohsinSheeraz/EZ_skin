@@ -89,10 +89,11 @@ export default function DepositModel() {
             Add To Jackpot
           </h2>
           <ModalSelect />
-
-          <button className="mt-3 px-8 py-2 text-white  bg-green-500 hover:bg-green-700 transition hover:translate-y-1 rounded-xl">
-            Deposit
-          </button>
+          <a href="/stripe">
+            <button className="mt-3 px-8 py-2 text-white  bg-green-500 hover:bg-green-700 transition hover:translate-y-1 rounded-xl">
+              Deposit
+            </button>
+          </a>
           <div
             className="absolute top-0 right-0 p-4 cursor-pointer ease-out hover:scale-y-150  duration-300"
             onClick={handleClose}

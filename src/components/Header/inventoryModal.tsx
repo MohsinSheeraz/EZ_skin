@@ -2,9 +2,9 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
+import Image from "next/image";
 import HistoryIMG from "@/assets/images/history.png";
 import RewardIMG from "@/assets/images/rewards.png";
-import Image from "next/image";
 import SkinsData from "./skinsdata";
 
 const style = {
@@ -19,38 +19,6 @@ const style = {
   px: 4,
   pb: 3,
 };
-
-function ChildModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = (event: React.MouseEvent) => {
-    event.stopPropagation(); // Prevent event propagation
-    setOpen(true);
-  };
-  const handleClose = (event: React.MouseEvent) => {
-    event.stopPropagation(); // Prevent event propagation
-    setOpen(false);
-  };
-
-  return (
-    <React.Fragment>
-      <Button onClick={handleOpen}>Open Child Modal</Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="child-modal-title"
-        aria-describedby="child-modal-description"
-      >
-        <Box sx={{ ...style, width: 200 }}>
-          <h2 id="child-modal-title">Live Gaming</h2>
-          <p id="child-modal-description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
-          <Button onClick={handleClose}>Close Child Modal</Button>
-        </Box>
-      </Modal>
-    </React.Fragment>
-  );
-}
 
 export default function InventoryModal() {
   const [open, setOpen] = React.useState(false);
@@ -116,7 +84,7 @@ export default function InventoryModal() {
                 <div className="h-10 bg-white rounded-t-md text-center flex justify-center items-center">
                   Shop
                 </div>
-                <div className="mt-3 h-10  text-center flex justify-center items-center gap-x-2">
+                <div className="mt-3 h-10 text-center flex justify-center items-center gap-x-2">
                   <Image
                     src={HistoryIMG}
                     alt="History Png"
@@ -133,7 +101,6 @@ export default function InventoryModal() {
                   >
                     <path d="M 3 9 A 1.0001 1.0001 0 1 0 3 11 L 47 11 A 1.0001 1.0001 0 1 0 47 9 L 3 9 z M 3 24 A 1.0001 1.0001 0 1 0 3 26 L 47 26 A 1.0001 1.0001 0 1 0 47 24 L 3 24 z M 3 39 A 1.0001 1.0001 0 1 0 3 41 L 47 41 A 1.0001 1.0001 0 1 0 47 39 L 3 39 z" />
                   </svg>
-
                   <input
                     type="search"
                     name=""
@@ -153,7 +120,7 @@ export default function InventoryModal() {
             </div>
           </div>
           <div
-            className="absolute top-0 right-0 p-4 cursor-pointer ease-out hover:scale-y-125  duration-300"
+            className="absolute top-0 right-0 p-4 cursor-pointer ease-out hover:scale-y-125 duration-300"
             onClick={handleClose}
           >
             <svg
@@ -166,7 +133,7 @@ export default function InventoryModal() {
               fill="white"
               className="hover:fill-red-700"
             >
-              <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z" />
+              <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
             </svg>
           </div>
         </Box>
