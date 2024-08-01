@@ -27,7 +27,7 @@ pnpm install
 pnpm dev
 ```
 
-Open [https://ezskin.vercel.app/](https://ezskin.vercel.app/) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
 
@@ -42,5 +42,5 @@ To learn more about this example:
 
 ## Note
 
-Front End URL: https://ezskin.vercel.app/
-Backend End URL: https://test123-six-kappa.vercel.app/
+Front End URL: http://localhost:3000
+Backend End URL: http://localhost:5000/

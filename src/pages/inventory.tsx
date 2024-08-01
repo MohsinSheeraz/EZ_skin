@@ -26,7 +26,7 @@ const InventoryPage: React.FC = () => {
       const fetchInventory = async () => {
         try {
           const response = await axios.get<InventoryResponse>(
-            "https://test123-six-kappa.vercel.app//api/inventory",
+            "http://localhost:5000/api/inventory",
             {
               params: { steamID64, appId, contextId },
             },

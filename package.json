@@ -14,7 +14,7 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
     "prepare": "husky install"
   },
-  "proxy": "https://test123-six-kappa.vercel.app//",
+  "proxy": "http://localhost:5000/",
   "dependencies": {
     "@commitlint/config-conventional": "^17.6.7",
     "@emotion/cache": "^11.11.0",
