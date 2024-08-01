@@ -56,7 +56,7 @@ const SteamLogin: React.FC = () => {
 
   const handleLogin = () => {
     try {
-      window.location.href = "http://localhost:5000/auth/steam"; // Correct URL with http
+      window.location.href = "https://test123-six-kappa.vercel.app/auth/steam"; // Correct URL with http
     } catch (error) {
       console.error("Error logging in:", error);
     }
@@ -87,7 +87,7 @@ const SteamLogin: React.FC = () => {
         <div className="flex gap-x-8 items-center">
           <AccountSetting user={username} userProfile={avatar} />
           {/* <img src={avatar} alt="Steam Avatar" className="w-10 h-10 rounded-full" /> */}
-          <a href="http://localhost:5000/logout">
+          <a href="https://test123-six-kappa.vercel.app/logout">
             <button id="logoutButton" onClick={handleLogout}>
               <LogoutIcon htmlColor="white" />
             </button>
