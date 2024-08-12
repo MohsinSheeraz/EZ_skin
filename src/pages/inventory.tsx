@@ -31,7 +31,7 @@ const InventoryPage: React.FC = () => {
               params: { steamID64, appId, contextId },
             },
           );
-          console.log(response.data.items)
+          console.log(response.data.items);
           setInventory(response.data.items);
         } catch (err: any) {
           setError(err.message);
