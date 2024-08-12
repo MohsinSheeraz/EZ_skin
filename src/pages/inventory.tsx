@@ -5,6 +5,7 @@ import axios from "axios";
 interface InventoryItem {
   icon_url: string;
   market_hash_name: string;
+  price:string
 }
 
 interface InventoryResponse {
@@ -64,6 +65,9 @@ const InventoryPage: React.FC = () => {
               />
               <p className="text-sm text-center font-medium text-white">
                 {item.market_hash_name}
+              </p>
+              <p className="text-sm text-center font-medium text-white">
+                {item.price.split('\n')[0]}
               </p>
             </div>
           </li>
