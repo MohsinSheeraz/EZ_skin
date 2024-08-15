@@ -44,7 +44,6 @@ const InventoryPage: React.FC = () => {
           setLoading(false);
         }
       };
-      // console.log("kjdahjflkaj",fetchInventory());
       
       fetchInventory();
     } else {
