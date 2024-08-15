@@ -3,10 +3,11 @@ import axios from "axios";
 
 // Define the types
 interface InventoryItem {
-  icon_url: string;
-  market_hash_name: string;
-  price: string;
+  iconUrl: string;
+  name: string;
+  price:string
 }
+
 
 interface InventoryResponse {
   items: InventoryItem[];
@@ -52,18 +53,23 @@ const InventoryPage: React.FC = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="h-auto overflow-y-auto">
+    <div className="overflow-y-auto h-[500px]">
+      <h1 className="text-center font-bold text-2xl text-white">Inventory</h1>
       <ul className="grid grid-cols-5 gap-4">
         {inventory.map((item, index) => (
           <li key={index}>
-            <div className="bg-[#202020] rounded-xl flex flex-col items-center justify-center cursor-pointer">
-              <img src={item.icon_url} alt={item.market_hash_name} />
+            <div className="bg-[#2C2C2E] p-2 rounded-md">
+              <img
+                src={item.iconUrl}
+                alt={item.name}
+                className=""
+              />
               <div className="w-full flex justify-between items-center p-2 text-xs">
                 <p className="font-medium text-white">
-                  {item.market_hash_name}
+                  {item.name}
                 </p>
                 <p className="font-medium text-green-700">
-                  {item.price.split("\n")[0]}
+                  {item.price}
                 </p>
               </div>
             </div>
