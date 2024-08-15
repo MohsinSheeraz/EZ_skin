@@ -5,7 +5,7 @@ import axios from "axios";
 interface InventoryItem {
   icon_url: string;
   market_hash_name: string;
-  price:string
+  price: string;
 }
 
 interface InventoryResponse {
@@ -53,22 +53,19 @@ const InventoryPage: React.FC = () => {
 
   return (
     <div className="h-auto overflow-y-auto">
-      <h1 className="text-center font-bold text-2xl text-white">Inventory</h1>
-      <ul className="flex gap-x-5 p-3">
+      <ul className="grid grid-cols-5 gap-4">
         {inventory.map((item, index) => (
           <li key={index}>
-            <div className="bg-[#2C2C2E] p-2 rounded-md">
-              <img
-                src={item.icon_url}
-                alt={item.market_hash_name}
-                className="w-32 h-32"
-              />
-              <p className="text-sm text-center font-medium text-white">
-                {item.market_hash_name}
-              </p>
-              <p className="text-sm text-center font-medium text-white">
-                {item.price.split('\n')[0]}
-              </p>
+            <div className="bg-[#202020] rounded-xl flex flex-col items-center justify-center cursor-pointer">
+              <img src={item.icon_url} alt={item.market_hash_name} />
+              <div className="w-full flex justify-between items-center p-2 text-xs">
+                <p className="font-medium text-white">
+                  {item.market_hash_name}
+                </p>
+                <p className="font-medium text-green-700">
+                  {item.price.split("\n")[0]}
+                </p>
+              </div>
             </div>
           </li>
         ))}

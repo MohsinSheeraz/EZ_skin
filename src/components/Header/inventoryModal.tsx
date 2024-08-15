@@ -6,6 +6,7 @@ import Image from "next/image";
 import HistoryIMG from "@/assets/images/history.png";
 import RewardIMG from "@/assets/images/rewards.png";
 import SkinsData from "./skinsdata";
+import MoneyImg from "@/assets/images/money-bag.png";
 
 const style = {
   position: "absolute" as "absolute",
@@ -38,9 +39,10 @@ export default function InventoryModal() {
   return (
     <div>
       <Button onClick={handleOpen}>
-        <p className="font-[Poppins] -ml-2 text-base font-light text-left text-black">
-          Inventory
-        </p>
+        <div className="flex items-center gap-x-2 font-normal text-white font-[Poppins] tracking-tight text-base bg-green-600 p-2 rounded-md hover:-translate-y-1 transition">
+          <Image src={MoneyImg} alt="" className="w-7 h-7" />
+          Deposit
+        </div>
       </Button>
       <Modal
         open={open}

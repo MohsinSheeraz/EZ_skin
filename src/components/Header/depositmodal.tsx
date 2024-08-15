@@ -60,12 +60,12 @@ export default function DepositModel() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>
+      {/* <Button onClick={handleOpen}>
         <div className="flex items-center gap-x-2 font-normal text-white font-[Poppins] tracking-tight text-base bg-green-600 p-2 rounded-md hover:-translate-y-1 transition">
           <Image src={MoneyImg} alt="" className="w-7 h-7" />
           Deposit
         </div>
-      </Button>
+      </Button> */}
       <Modal
         open={open}
         onClose={handleClose}

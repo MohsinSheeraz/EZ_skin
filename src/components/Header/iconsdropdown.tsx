@@ -117,12 +117,12 @@ export default function AccountSetting({ user, userProfile }: Props) {
           </ListItemIcon>
           <TradeURLModal />
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        {/* <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
           <InventoryModal />
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <ContactSupportIcon fontSize="small" />

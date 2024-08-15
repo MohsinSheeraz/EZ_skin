@@ -8,47 +8,7 @@ import SteamLogin from "@/app/Steam/page";
 import DepositModel from "./depositmodal";
 import React, { useEffect, useState } from "react";
 import SkinsData from "./skinsdata";
-
-// const products = [
-//   {
-//     name: "Analytics",
-//     description: "Get a better understanding of your traffic",
-//     href: "#",
-//     icon: ChartPieIcon,
-//   },
-//   {
-//     name: "Engagement",
-//     description: "Speak directly to your customers",
-//     href: "#",
-//     icon: CursorArrowRaysIcon,
-//   },
-//   {
-//     name: "Security",
-//     description: "Your customers’ data will be safe and secure",
-//     href: "#",
-//     icon: FingerPrintIcon,
-//   },
-//   {
-//     name: "Integrations",
-//     description: "Connect with third-party tools",
-//     href: "#",
-//     icon: SquaresPlusIcon,
-//   },
-//   {
-//     name: "Automations",
-//     description: "Build strategic funnels that will convert",
-//     href: "#",
-//     icon: ArrowPathIcon,
-//   },
-// ];
-// const callsToAction = [
-//   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-//   { name: "Contact sales", href: "#", icon: PhoneIcon },
-// ];
-
-// function classNames(...classes: any) {
-//   return classes.filter(Boolean).join(" ");
-// }
+import InventoryModal from "./inventoryModal";
 
 export default function Example() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -112,7 +72,8 @@ export default function Example() {
             {isLoggedIn && (
               <div>
                 <button id="loginButton">
-                  <DepositModel />
+                  {/* <DepositModel /> */}
+                  <InventoryModal />
                 </button>
               </div>
             )}
