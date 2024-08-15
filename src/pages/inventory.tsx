@@ -8,7 +8,6 @@ interface InventoryItem {
   price:string
 }
 
-
 interface InventoryResponse {
   items: InventoryItem[];
 }
@@ -24,6 +23,9 @@ const InventoryPage: React.FC = () => {
     const appId = params.get("appId") || "252490"; // Default appId if not provided
     const contextId = params.get("contextId") || "2"; // Default contextId if not provided
 
+    console.log(steamID64,appId,contextId);
+    
+
     if (steamID64) {
       const fetchInventory = async () => {
         try {
@@ -33,7 +35,8 @@ const InventoryPage: React.FC = () => {
               params: { steamID64, appId, contextId },
             },
           );
-          console.log(response.data.items);
+          console.log("dattadjguda",response.data.items);
+          
           setInventory(response.data.items);
         } catch (err: any) {
           setError(err.message);
@@ -41,13 +44,15 @@ const InventoryPage: React.FC = () => {
           setLoading(false);
         }
       };
-
+      // console.log("kjdahjflkaj",fetchInventory());
+      
       fetchInventory();
     } else {
       setError("Missing parameters.");
       setLoading(false);
     }
   }, []);
+  
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -78,6 +83,6 @@ const InventoryPage: React.FC = () => {
       </ul>
     </div>
   );
-};
+}  
 
 export default InventoryPage;
