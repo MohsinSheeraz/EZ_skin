@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 // Define the types
 interface InventoryItem {
   iconUrl: string;
   name: string;
-  price:string
+  price: string;
 }
 
 interface InventoryResponse {
@@ -23,35 +22,34 @@ const InventoryPage: React.FC = () => {
     const appId = params.get("appId") || "252490"; // Default appId if not provided
     const contextId = params.get("contextId") || "2"; // Default contextId if not provided
 
-    console.log(steamID64,appId,contextId);
-    
+    console.log(steamID64, appId, contextId);
 
     if (steamID64) {
       const fetchInventory = async () => {
         try {
-          const response = await axios.get<InventoryResponse>(
-            "https://test123-six-kappa.vercel.app/api/inventory/",
-            {
-              params: { steamID64, appId, contextId },
-            },
+          const response = await fetch(
+            `https://test123-six-kappa.vercel.app/api/inventory?steamID64=${steamID64}&appId=${appId}&contextId=${contextId}`
           );
-          console.log("dattadjguda",response.data.items);
+          if (!response.ok) {
+            throw new Error("Failed to fetch inventory");
+          }
+          const data: InventoryResponse = await response.json();
+          console.log("dattadjguda", data.items);
           
-          setInventory(response.data.items);
+          setInventory(data.items);
         } catch (err: any) {
           setError(err.message);
         } finally {
           setLoading(false);
         }
       };
-      
+
       fetchInventory();
     } else {
       setError("Missing parameters.");
       setLoading(false);
     }
   }, []);
-  
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -82,6 +80,6 @@ const InventoryPage: React.FC = () => {
       </ul>
     </div>
   );
-}  
+};
 
 export default InventoryPage;
